@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="afspraak">
+            <header>
+                <h2>Kies een datum</h2>
+                <div class="weekNav clearfix">
+                    <a class="prev" rel="nofollow" href="?date=06-02-2017">Vorige week</a>
+                    <a class="next" rel="nofollow" href="?date=20-02-2017">Volgende week</a>
+                </div>
+            </header>
+            <div class="steps">
+                <span class="active">1 - Kies een datum</span> 
+                <span>2 - Vul uw gegevens in</span> 
+                <span class="last">3 - Bevestig</span>
+            </div>
+            <div class="afspraaktableWrap">
+                <table class="afspraakTable">
+                    <tbody>
+                        <tr>
+                            <th>maandag 13 februari</th>
+                            <th>dinsdag 14 februari</th>
+                            <th>woensdag 15 februari</th>
+                            <th>donderdag 16 februari</th>
+                            <th>vrijdag 17 februari</th>
+                        </tr>
+                 
+                        <tr ng-repeat="$index in getMaxReservationCount() track by $index">
+                            <td>
+                                <a href="/nl/afspraak?request=form&amp;slot=741&amp;dr=30&amp;daynr=0&amp;date=16-01-2017&amp;hour=11:00" rel="nofollow">
+                                    <span class="time">{{bookings_monday[$index].hour}} </span><br>
+                                    <span class="dr"> {{getFullDockterName(bookings_monday[$index].dokter.firstname, bookings_monday[$index].dokter.lastname)}}</span></a>
+                            </td>
+                            <td>
+                                <a href="/nl/afspraak?request=form&amp;slot=60&amp;dr=10&amp;daynr=1&amp;date=17-01-2017&amp;hour=09:45" rel="nofollow">
+                                    <span class="time">{{bookings_thirsday[$index].hour}}</span><br>
+                                    <span class="dr">{{getFullDockterName(bookings_thirsday[$index].dokter.firstname, bookings_thirsday[$index].dokter.lastname)}}</span></a>
+                            </td>
+                            <td>
+                                <a href="/nl/afspraak?request=form&amp;slot=1836&amp;dr=51&amp;daynr=2&amp;date=18-01-2017&amp;hour=08:30" rel="nofollow">
+                                    <span class="time">{{bookings_thirsday[$index].hour}}</span><br>
+                                    <span class="dr">{{getFullDockterName(bookings_thirsday[$index].dokter.firstname, bookings_thirsday[$index].dokter.lastname)}}</span></a>
+                            </td>
+                            <td>
+                                <a href="/nl/afspraak?request=form&amp;slot=1524&amp;dr=50&amp;daynr=3&amp;date=19-01-2017&amp;hour=08:30" rel="nofollow">
+                                    <span class="time">{{bookings_monday[$index].hour}}</span><br>
+                                    <span class="dr">{{getFullDockterName(bookings_monday[$index].dokter.firstname, bookings_monday[$index].dokter.lastname)}}</span></a>
+                            </td>
+                            <td>
+                                <a href="/nl/afspraak?request=form&amp;slot=1576&amp;dr=50&amp;daynr=4&amp;date=20-01-2017&amp;hour=08:30" rel="nofollow">
+                                    <span class="time">{{bookings_monday[$index].hour}}</span><br>
+                                    <span class="dr">{{getFullDockterName(bookings_monday[$index].dokter.firstname, bookings_monday[$index].dokter.lastname)}}</span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               <a ng-repeat="reservation in reservations()">{{reservation}}</a>
+            </div>
+        </div> 
+    </body>
+</html>
